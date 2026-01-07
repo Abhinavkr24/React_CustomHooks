@@ -5,39 +5,47 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function useTodos(){
-  const [todos,setTodos] = useState([]);
 
-useEffect(()=>{
-  axios.get("http://localhost:5000/getToDo")
-  .then(res=>{setTodos(res.data);
-    console.log(res.data)
-    
-  })
-
-},[])
-
-return todos;
-}
 
 function App() {
+
+  const[inputValue,setInputValue] = useState('');
   
-  const todos = useTodos();
-
-  return ( 
-    <div>
-      {todos.map(todo=><MyComponent todo={todo}/>)}
-    </div>
-  )
-}
-
-function MyComponent({todo}){
+  const debounce = useDebounce(inputValue,500) 
+   
+  console.log(debounce);
+  
+  
   return(
     <div>
-      {todo.title}
-      {todo.description}
+       <input type='text' placeholder='type your text here'
+       value={inputValue}
+       onChange={(e)=>{console.log("value changed");
+          setInputValue(e.target.value)
+       }}
+
+       />
     </div>
   )
+  
+}
+
+
+
+function useDebounce(val,n){
+ 
+  const[debouncedValue,setDebouncedValue] = useState(val);
+
+  useEffect(()=>{
+    const timerId = setInterval(()=>{
+      setDebouncedValue(val)
+    },n)
+
+    return()=>clearTimeout(timerId)
+  },[val,n])
+
+  return debouncedValue;
+  
 }
 
 
