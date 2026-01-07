@@ -1,8 +1,8 @@
-#⚛️ React Custom Hooks Practice
+# React Custom Hooks Practice
 
 This repository contains implementations of commonly used custom React hooks, created to understand reusability, side-effects, performance optimization, and clean hook design.
 
-#📚 What I Learned
+# What I Learned
 
 How to extract reusable logic into custom hooks
 
@@ -14,7 +14,7 @@ Improving performance using debouncing
 
 Working with timers and cleanup functions
 
-#🪝 Custom Hooks Implemented
+#  Custom Hooks Implemented
 🔹 useIsOnline
 
 Checks whether the user is currently online or offline using browser events.
@@ -70,5 +70,11 @@ Performance optimization
 React
 
 JavaScript (ES6+)
+
+# To Run this project 
+
+git clone https://github.com/your-username/custom-hooks.git
+npm install
+npm run dev
 
 
